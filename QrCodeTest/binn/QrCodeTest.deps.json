@@ -1,0 +1,81 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.0",
+    "signature": "9897915f6a1130fe13bdcf3163d98fdb32f0b958"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.0": {
+      "QrCodeTest/1.0.0": {
+        "dependencies": {
+          "SkiaSharp": "1.59.3",
+          "ZXing.Net.Bindings.SkiaSharp": "0.16.4"
+        },
+        "runtime": {
+          "QrCodeTest.dll": {}
+        }
+      },
+      "SkiaSharp/1.59.3": {
+        "runtime": {
+          "lib/netstandard1.3/SkiaSharp.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/osx/native/libSkiaSharp.dylib": {
+            "rid": "osx",
+            "assetType": "native"
+          },
+          "runtimes/win7-x64/native/libSkiaSharp.dll": {
+            "rid": "win7-x64",
+            "assetType": "native"
+          },
+          "runtimes/win7-x86/native/libSkiaSharp.dll": {
+            "rid": "win7-x86",
+            "assetType": "native"
+          }
+        }
+      },
+      "ZXing.Net/0.16.2": {
+        "runtime": {
+          "lib/netstandard1.3/zxing.dll": {}
+        }
+      },
+      "ZXing.Net.Bindings.SkiaSharp/0.16.4": {
+        "dependencies": {
+          "SkiaSharp": "1.59.3",
+          "ZXing.Net": "0.16.2"
+        },
+        "runtime": {
+          "lib/netstandard1.3/zxing.skiasharp.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "QrCodeTest/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SkiaSharp/1.59.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MNVXKHn3dDGnJPtO4dPMU6GtvFHO1aUHDWm1V5i7QbacVJFxT+a8x1chGGdgFNl7pB4+/yzEo39x9Q7ggRYt6A==",
+      "path": "skiasharp/1.59.3",
+      "hashPath": "skiasharp.1.59.3.nupkg.sha512"
+    },
+    "ZXing.Net/0.16.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JBpiPNtgnwscGcRI5UpFXSJh/t/zuuxu5yElp6oMm07hBHs0IQgIa8fbgvcSKoPBKm2fyXas8zaYy9Lx4P0o4A==",
+      "path": "zxing.net/0.16.2",
+      "hashPath": "zxing.net.0.16.2.nupkg.sha512"
+    },
+    "ZXing.Net.Bindings.SkiaSharp/0.16.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+6zwMVbHnk3Cpg/kV8B3RpHMWKOWZ+8SLKnF9Qt8yStxJRj+r2f0ICPSwfp9coeBoR8bsusJshBTSnQQOnQA9Q==",
+      "path": "zxing.net.bindings.skiasharp/0.16.4",
+      "hashPath": "zxing.net.bindings.skiasharp.0.16.4.nupkg.sha512"
+    }
+  }
+}

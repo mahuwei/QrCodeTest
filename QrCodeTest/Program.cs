@@ -14,6 +14,7 @@ namespace QrCodeTest {
         private static void Main(string[] args) {
             Console.WriteLine("QrCode Test\n");
             Console.WriteLine("input key \"C 数据 存储二维码文件目录\" 生成二维码.");
+            Console.WriteLine("input key \"T 数据 存储条形码文件目录\" 生成条形码.");
             Console.WriteLine("input key \"D 二维码文件目录\" 二维码解码.");
             Console.WriteLine("input key \"Q 头部分 识别信息 \" 生成授权码.");
             Console.WriteLine("input key \"A 验证码 文件目录 \" 生成验证码图片.");
@@ -51,15 +52,37 @@ namespace QrCodeTest {
                 if (arr[0].ToUpper() == "C") {
                     var writer = new BarcodeWriter { Format = BarcodeFormat.QR_CODE };
                     var encOptions = new QrCodeEncodingOptions {
-                        Width = 300,
-                        Height = 300,
+                        Width = 150,
+                        Height = 150,
                         Margin = 1,
                         PureBarcode = false,
-                        CharacterSet = "utf-8",
-                        QrVersion = 9
+                        CharacterSet = "utf-8", // 支持中文
+                        QrVersion = 3           // 愈大，容错越高，像素愈多
                     };
                     
                     encOptions.Hints.Add(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
+                    writer.Options = encOptions;
+
+                    var result = writer.Write(arr[1]);
+                    using (var image = SKImage.FromBitmap(result)) {
+                        using (var output = File.OpenWrite(arr[2])) {
+                            image.Encode(SKEncodedImageFormat.Jpeg, 75).SaveTo(output);
+                        }
+                    }
+                    continue;
+                }
+
+
+                if (arr[0].ToUpper() == "T") {
+                    var writer = new BarcodeWriter { Format = BarcodeFormat.ITF };
+                    var encOptions = new QrCodeEncodingOptions {
+                        Width = 200,
+                        Height = 70,
+                        //Margin = 1,
+                        PureBarcode = true,
+                    };
+                    
+                    //encOptions.Hints.Add(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
                     writer.Options = encOptions;
 
                     var result = writer.Write(arr[1]);
